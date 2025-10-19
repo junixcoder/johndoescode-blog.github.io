@@ -1,0 +1,51 @@
+[
+  {
+    "id": "post1",
+    "title": "Hello, World!",
+    "date": "2025-10-15",
+    "description": "How I started my journey with html, css, and java script.",
+    "file": "posts/post1.html",
+    "image": "images/post1-feature.jpg",
+    "categories": [
+      "html",
+      "css",
+      "java script"
+    ]
+  },
+  {
+    "id": "post2",
+    "title": "Dabbling with Responsive Design",
+    "date": "2025-10-17",
+    "description": "Responsive design ensures your site looks great on any device..",
+    "file": "posts/post2.html",
+    "image": "images/post2-feature.jpg",
+    "categories": [
+      "Design",
+      "CSS"
+    ]
+  },
+  {
+    "id": "post3",
+    "title": "Dabbling with Java Script",
+    "date": "2025-10-18",
+    "description": "JavaScript can seem overwhelming, but I'm learning a few small tricks that can make a big difference.",
+    "file": "posts/post3.html",
+    "image": "images/post3-feature.jpg",
+    "categories": [
+      "JavaScript",
+      "Beginners"
+    ]
+  },
+  {
+    "id": "post4",
+    "title": "Repositories Stories",
+    "date": "2025-10-20",
+    "description": "How do I create one? Where do I start?",
+    "file": "posts/post4.html",
+    "image": "images/post4-feature.jpg",
+    "categories": [
+      "Repositories",
+      "Publish"
+    ]
+  }
+]
