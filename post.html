@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Post</title><link rel="stylesheet" href="css/styles.css"/></head><body>
+<header><h1>John Doe’s Coding Journey</h1><nav><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
+<main id="post-content"><p>Loading...</p></main>
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+  <img id="lightbox-img" class="lightbox-content" />
+  <span class="next" onclick="changeSlide(1)">&#10095;</span>
+  <div id="lightbox-caption" style="text-align:center;color:#ccc;padding:10px;"></div>
+</div>
+<footer>&copy; 2025 John Doe’s Blog. All rights reserved.</footer>
+<script>
+let slideIndex=0, images=[];
+const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lightbox-img'), cap=document.getElementById('lightbox-caption');
+const container=document.getElementById('post-content');
+const params=new URLSearchParams(window.location.search);
+const id=params.get('id');
+
+async function loadPost(){
+  try{
+    const res=await fetch('posts/posts.json'); const posts=await res.json();
+    const post=posts.find(p=>p.id===id); if(!post){ container.innerHTML='<p>Post not found.</p>'; return; }
+    const html=await (await fetch(post.file)).text();
+    // Inject the HTML of the post
+    container.innerHTML = `<div style="max-width:900px;margin:0 auto;background:#fff;padding:1.25rem;border-radius:8px;">` + html + `<p><a href="index.html">← Back to Home</a></p></div>`;
+    // show categories if present
+    if(post.categories && post.categories.length){
+      const catEl=document.createElement('p'); catEl.style.color='#666';
+      catEl.textContent = 'Categories: ' + post.categories.join(', ');
+      container.prepend(catEl);
+    }
+    images=Array.from(container.querySelectorAll('img'));
+    images.forEach((img,i)=> img.addEventListener('click', ()=> openLightbox(i)));
+  }catch(e){ container.innerHTML='<p>Failed to load post.</p>'; console.error(e); }
+}
+
+function openLightbox(i){ slideIndex=i; showSlide(i); lb.style.display='block'; }
+function closeLightbox(){ lb.style.display='none'; }
+function changeSlide(n){ slideIndex=(slideIndex+n+images.length)%images.length; showSlide(slideIndex); }
+function showSlide(i){ const img=images[i]; lbImg.classList.remove('show'); setTimeout(()=>{ lbImg.src=img.src; cap.textContent = img.title || img.alt || ''; lbImg.classList.add('show'); },100); }
+document.addEventListener('keydown', e=>{ if(lb.style.display==='block'){ if(e.key==='ArrowRight') changeSlide(1); if(e.key==='ArrowLeft') changeSlide(-1); if(e.key==='Escape') closeLightbox(); }});
+lb.addEventListener('click', e=>{ if(e.target===lb) closeLightbox(); });
+loadPost();
+</script></body></html>

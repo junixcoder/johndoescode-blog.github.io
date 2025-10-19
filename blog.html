@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>John Doe's Blog</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>John Doe’s Coding Journey</h1>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="controls">
+        <div class="category-buttons" id="categoryButtons"></div>
+        <input id="search" class="search-input" placeholder="Search posts..." />
+      </div>
+
+      <div id="posts" class="posts-grid"></div>
+
+      <div class="pagination" id="pagination"></div>
+    </main>
+
+    <footer>&copy; 2025 John Doe’s Blog. All rights reserved.</footer>
+
+    <script src="js/blog.js"></script>
+  </body>
+</html>
