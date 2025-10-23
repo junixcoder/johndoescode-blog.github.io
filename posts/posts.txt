@@ -1,3 +1,0 @@
-Documentation for post files:
-
-Instructions on how to edit and update template for new posts.
