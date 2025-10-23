@@ -1,1 +1,0 @@
-Documentation for style.css file. Any changes to the style.css file should be recorded here.
