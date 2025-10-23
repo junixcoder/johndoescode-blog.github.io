@@ -19,9 +19,9 @@ async function fetchPosts() {
                     try {
                         const html = await (await fetch(post.file)).text();
                         const m = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-                        post.image = m ? m[1].replace("..", ".") : "images/post1-feature.jpg";
+                        post.image = m ? m[1].replace("..", ".") : "./images/post1-feature.jpg";
                     } catch (e) {
-                        post.image = "images/post1-feature.jpg";
+                        post.image = "./images/post1-feature.jpg";
                     }
                 }
                 (post.categories || []).forEach((c) => categories.add(c));
@@ -126,3 +126,4 @@ document.getElementById("search").addEventListener("input", (e) => {
 });
 
 fetchPosts();
+
