@@ -5,7 +5,7 @@
     "date": "2025-10-15",
     "description": "How I started my journey with html, css, and java script.",
     "file": "posts/post1.html",
-    "image": "../images/post1-feature.jpg",
+    "image": "./images/post1-feature.jpg",
     "categories": [
       "html",
       "css",
@@ -18,7 +18,7 @@
     "date": "2025-10-17",
     "description": "Responsive design ensures your site looks great on any device..",
     "file": "posts/post2.html",
-    "image": "../images/post2-feature.jpg",
+    "image": "./images/post2-feature.jpg",
     "categories": [
       "Design",
       "CSS"
