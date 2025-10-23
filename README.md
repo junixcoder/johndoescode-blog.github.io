@@ -1,6 +1,6 @@
 # ✨John Does Code Blog
 ## John Does Code - Coding Journey Blog
-An ongoing-project for blogging.
+An ongoing-project for blogging. For Portfolio showcase only.
 
 ## Instructions on updating the blog
 1. Edit the post-template.html for creating new post.
